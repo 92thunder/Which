@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>To:</strong>
+  <%= @question.to %>
+</p>
+
+<p>
+  <strong>From:</strong>
+  <%= @question.from %>
+</p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @question.question %>
+</p>
+
+<%= form_for(@question) do |f| %>
+  <div class="field">
+    <%= f.label "YES" %>
+    <%= f.radio_button :answer, '1', {} %>
+    <%= f.label "NO" %>
+    <%= f.radio_button :answer, '0', {} %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>
+

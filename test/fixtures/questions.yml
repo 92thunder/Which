@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  to: MyString
+  from: MyString
+  question: MyText
+  answer: false
+  answerd?: false
+
+two:
+  to: MyString
+  from: MyString
+  question: MyText
+  answer: false
+  answerd?: false
