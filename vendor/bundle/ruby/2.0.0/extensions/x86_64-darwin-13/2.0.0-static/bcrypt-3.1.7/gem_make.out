@@ -1,0 +1,17 @@
+/Users/ryota/.rbenv/versions/2.0.0-p451/bin/ruby extconf.rb 
+checking for ruby/util.h... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling bcrypt_ext.c
+compiling crypt.c
+compiling crypt_blowfish.c
+compiling crypt_gensalt.c
+compiling wrapper.c
+linking shared-object bcrypt_ext.bundle
+
+make "DESTDIR=" install
+/opt/local/bin/ginstall -c -m 0755 bcrypt_ext.bundle ./.gem.20140805-16721-dakksg
+installing default bcrypt_ext libraries
