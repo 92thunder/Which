@@ -18,7 +18,8 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   def new
     @question = Question.new
-    @to = params[:to]
+    @question.to = params[:to]
+    @question.from = current_user.email
   end
 
   # GET /questions/1/edit

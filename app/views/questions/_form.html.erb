@@ -13,13 +13,12 @@
 
   <div class="field">
     <%= f.label :to %><br>
-    <%= @question.to %>
-    <%= @to %>
+    <%= f.text_field :to, readonly: true %>
   </div>
   <div id="valid"></div>
   <div class="field">
     <%= f.label :from %><br>
-    <%= current_user.email %>
+    <%= f.text_field :from, readonly: true %>
   </div>
   <div class="field">
     <%= f.label :question %><br>
