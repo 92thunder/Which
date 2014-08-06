@@ -15,10 +15,6 @@ class QuestionsController < ApplicationController
   def answer
   end
 
-  def sends
-    @questions = Question.where(from: current_user.email)
-  end
-
   # GET /questions/new
   def new
     @question = Question.new
@@ -51,9 +47,7 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
-    unless @question.answer.nil?
-      @question.answerd = true
-    end
+    @question.answerd = true
 
     respond_to do |format|
       if @question.update(question_params)
