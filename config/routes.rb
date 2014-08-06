@@ -3,6 +3,10 @@ Rails.application.routes.draw do
     member do
       get 'answer'
     end
+    collection do
+      get 'sends'
+    end
+
   end
   get "user/find"
   post "user/find"
