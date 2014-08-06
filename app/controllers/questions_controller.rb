@@ -14,6 +14,10 @@ class QuestionsController < ApplicationController
 
   def answer
   end
+  
+  def sends
+    @questions = Question.where(from: current_user.email)
+  end
 
   # GET /questions/new
   def new
