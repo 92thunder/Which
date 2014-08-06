@@ -3,6 +3,11 @@ class UserController < ApplicationController
     @users = User.all
   end
   def find
+    @questions = Question.where(from: current_user.email)
+    @questions = @questions.reverse
+    @questions.uniq! { |question| question.to }
+
+
     @to = params[:to]
     if User.exists?(email: @to)
       @valid = true
