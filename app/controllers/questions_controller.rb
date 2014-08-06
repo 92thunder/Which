@@ -18,6 +18,7 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   def new
     @question = Question.new
+    @to = params[:to]
   end
 
   # GET /questions/1/edit

@@ -1,0 +1,6 @@
+<% if @valid %>
+// link_toが入らなかったため<a>で代用
+$('#valid').html("<a href=<%= "/questions/new?to=" + @to %>><%= @to %></a>");
+<% else %>
+$('#valid').html("そのメールアドレスは登録されていません");
+<% end %>

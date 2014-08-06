@@ -1,2 +1,10 @@
 <br>
-<%= link_to "質問を送る", new_question_path %>
+<%= link_to "質問を送る", "/user/find" %><br>
+<%= link_to "質問を見る", questions_path %><br>
+
+
+<% @users.each do |user| %>
+  <br>
+  <%= user.email %>
+<% end %>
+

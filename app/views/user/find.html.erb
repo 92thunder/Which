@@ -1,0 +1,7 @@
+<p>質問相手を選ぶ</p>
+<%= form_tag(url_for(:action => 'find'), :remote => true, :id => "valid_form") do %>
+  <%= text_field_tag :to %>
+  <%= submit_tag "確認" %>
+<% end %>
+<div id="valid"></div>
+

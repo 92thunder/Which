@@ -4,6 +4,8 @@ Rails.application.routes.draw do
       get 'answer'
     end
   end
+  get "user/find"
+  post "user/find"
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

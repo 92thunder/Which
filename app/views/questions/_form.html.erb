@@ -13,8 +13,10 @@
 
   <div class="field">
     <%= f.label :to %><br>
-    <%= f.text_field :to %>
+    <%= @question.to %>
+    <%= @to %>
   </div>
+  <div id="valid"></div>
   <div class="field">
     <%= f.label :from %><br>
     <%= current_user.email %>
