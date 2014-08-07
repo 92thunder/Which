@@ -2,6 +2,7 @@ class UserController < ApplicationController
   def index
     @users = User.all
   end
+
   def find
     @questions = Question.where(from: current_user.email)
     @questions = @questions.reverse
@@ -15,5 +16,8 @@ class UserController < ApplicationController
       @valid = false
     end
     render
+  end
+
+  def setting
   end
 end

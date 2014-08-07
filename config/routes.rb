@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   get "user/find"
   post "user/find"
+  get "user/setting"
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
