@@ -12,12 +12,11 @@
 
 <p>
   <strong>Question:</strong><br>
-  <%= @question.question %>
+  <pre><%= @question.question %></pre>
 </p>
 
-<%= link_to 'YES', answerd_question_path(@question, answer: "yes") %>
-<%= link_to 'NO', answerd_question_path(@question, answer: "no") %>
-<br>
-<br>
-<%= link_to 'Back', questions_path %>
+<div class="center">
+  <%= link_to 'YES', answerd_question_path(@question, answer: "yes"), class: "btn btn-primary" %>
+  <%= link_to 'NO', answerd_question_path(@question, answer: "no"), class: "btn btn-danger" %>
+</div>
 
