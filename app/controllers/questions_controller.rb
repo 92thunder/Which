@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy, :answer]
+  before_action :set_question, only: [:show, :edit, :update, :destroy, :answer, :answerd]
 
   # GET /questions
   # GET /questions.json
@@ -13,6 +13,20 @@ class QuestionsController < ApplicationController
   end
 
   def answer
+  end
+
+  def answerd
+    if params[:answer] == "yes"
+      answer = true
+    else
+      answer = false
+    end
+
+    flash[:notice] = "回答を送信しました"
+
+    @question.update_columns(answer: true, answerd: true)
+
+    render 'user/index'
   end
   
   def sends
