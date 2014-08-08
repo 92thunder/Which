@@ -1,7 +1,24 @@
-<p>質問相手を選ぶ</p>
+<h2>質問相手を選ぶ</h2>
+
+<strong>検索する:</strong><br>
 <%= form_tag(url_for(:action => 'find'), :remote => true, :id => "valid_form") do %>
   <%= text_field_tag :to %>
-  <%= submit_tag "確認" %>
+  <%= submit_tag "確認", class: "btn btn-default" %>
 <% end %>
 <div id="valid"></div>
+
+<br>
+<br>
+
+<strong>最近送った相手:</strong><br>
+<% count = 0 %>
+<ul class="list-group">
+  <% @questions.each do |question| %>
+    <li class="list-group-item"><%= link_to question.to, new_question_path(to: question.to) -%></li>
+  <% count += 1 %>
+  <% if count == 10 %>
+    <% break %>
+<% end %>
+<% end %>
+</ul>
 

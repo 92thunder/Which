@@ -14,3 +14,7 @@
  *= require_self
  *= repuire bootstrap
  */
+
+.center {
+  text-align: center;
+}
