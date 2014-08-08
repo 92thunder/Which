@@ -11,22 +11,13 @@
 </p>
 
 <p>
-  <strong>Question:</strong>
+  <strong>Question:</strong><br>
   <%= @question.question %>
 </p>
 
-<%= form_for(@question) do |f| %>
-  <div class="field">
-    <%= f.label "YES" %>
-    <%= f.radio_button :answer, '1', {} %>
-    <%= f.label "NO" %>
-    <%= f.radio_button :answer, '0', {} %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'YES', answerd_question_path(@question, answer: "yes") %>
+<%= link_to 'NO', answerd_question_path(@question, answer: "no") %>
+<br>
+<br>
 <%= link_to 'Back', questions_path %>
 
