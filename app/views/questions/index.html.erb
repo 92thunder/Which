@@ -1,6 +1,6 @@
 <h2>受信リスト</h2>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>From</th>
@@ -20,7 +20,7 @@
         <% else %>
           <td id="yes">Y</td>
         <% end %>
-        <td><%= link_to 'Answer', answer_question_path(question) %></td>
+        <td><%= link_to '', answer_question_path(question), class: "glyphicon glyphicon-pencil" %></td>
       </tr>
     <% end %>
   </tbody>

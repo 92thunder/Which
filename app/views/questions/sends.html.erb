@@ -1,6 +1,6 @@
 <h2>送信リスト</h2>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>To</th>
@@ -12,7 +12,7 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
-        <td><%= question.to[0, 11] %></td>
+        <td><%= question.to[0, 18] %></td>
         <% if question.answerd != true %>
           <td id="yet">未</td>
         <% elsif question.answer == false %>
@@ -20,7 +20,7 @@
         <% else %>
           <td id="yes">Y</td>
         <% end %>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '', question, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove" %></td>
       </tr>
     <% end %>
   </tbody>
