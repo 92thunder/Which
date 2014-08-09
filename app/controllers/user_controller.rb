@@ -1,4 +1,6 @@
 class UserController < ApplicationController
+  #skip_before_action :verify_authenticity_token, only: [:register]
+
   def index
     @users = User.all
   end
@@ -19,5 +21,16 @@ class UserController < ApplicationController
   end
 
   def setting
+  end
+
+  def register
+    #reg_id = params[:reg_id]
+    email = params[:email]
+    password = params[:pw]
+    @user = User.create!(
+      email: email,
+      password: password
+    )
+    render text: @user
   end
 end
