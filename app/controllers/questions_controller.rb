@@ -53,7 +53,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
+        format.html { redirect_to @question, notice: '質問が送信されました' }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new }
@@ -63,7 +63,7 @@ class QuestionsController < ApplicationController
   end
 
   # PATCH/PUT /questions/1
-  # PATCH/PUT /questions/1.json
+  # PATCH/PUT /questions/1.jso
   def update
     @question.answerd = true
 
@@ -83,7 +83,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
     respond_to do |format|
-      format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
+      format.html { redirect_to "/", notice: '質問が削除されました' }
       format.json { head :no_content }
     end
   end

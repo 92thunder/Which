@@ -1,10 +1,10 @@
-<h2>送信リスト</h2>
+<h3>送信リスト</h3>
 
 <table class="table">
   <thead>
     <tr>
-      <th>To</th>
-      <th>state</th>
+      <th></th>
+      <th></th>
       <th></th>
     </tr>
   </thead>
@@ -12,7 +12,7 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
-        <td><%= question.to[0, 18] %></td>
+        <td><%= question.to[0, 15] %></td>
         <% if question.answerd != true %>
           <td id="yet">未</td>
         <% elsif question.answer == false %>
