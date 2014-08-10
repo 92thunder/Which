@@ -22,9 +22,20 @@ class QuestionsController < ApplicationController
       answer = false
     end
 
-    flash[:notice] = "回答を送信しました"
-
     @question.update_columns(answer: answer, answerd: true)
+  
+
+    @user = User.find_by(email: @question.from)
+    registration_id = @user.reg_id
+    destination = [registration_id]
+
+    string = "" + @question.to + "から回答が送信されました"
+    data = { message: string }
+
+    GCM.send_notification( destination, data )
+
+
+    flash[:notice] = "回答を送信しました"
 
     render 'user/index'
   end
@@ -52,15 +63,12 @@ class QuestionsController < ApplicationController
     @question.from = current_user.email
 
 
-    @user = User.find_by(email: @question.from)
-
-    
-    registration_id = "APA91bGLmtgSCFXLTOKSetLQLeOAeExnFnho7FUHfJdM7VMkcoaTEFiSq4vzT17ouTuB3jzIPt9w-goWLHmgpsmu5bk5lVRO2svtYdJPQsKrTGQpAFzqNEvd_F-4wACpoMnXRUYjBV74OScEkuQEmXTGz0ag5P7niQ"
-    #destination = [@user.reg_id]
-    string = "" + @user.email + "から送信されました"
-    data = { message: string }
-    destination = Array.new
+    @user = User.find_by(email: @question.to)
+    registration_id = @user.reg_id
     destination = [registration_id]
+
+    string = "" + @question.from + "から質問が送信されました"
+    data = { message: string }
 
     GCM.send_notification( destination, data )
 
