@@ -24,13 +24,17 @@ class UserController < ApplicationController
   end
 
   def register
-    #reg_id = params[:reg_id]
+    reg_id = params[:reg_id]
     email = params[:email]
     password = params[:pw]
     @user = User.create!(
       email: email,
-      password: password
+      password: password,
+      reg_id: reg_id
     )
+    render text: "success"
+  rescue ActiveRecord::RecordInvalid => e
+    @user = e.record
     render text: @user
   end
 end
