@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     @questions = Question.where(to: current_user.email)
+    @questions = @questions.reverse
   end
 
   # GET /questions/1
@@ -22,9 +23,9 @@ class QuestionsController < ApplicationController
       answer = false
     end
 
+    # GCM send
     @question.update_columns(answer: answer, answerd: true)
   
-
     @user = User.find_by(email: @question.from)
     registration_id = @user.reg_id
     destination = [registration_id]
@@ -33,15 +34,16 @@ class QuestionsController < ApplicationController
     data = { message: string }
 
     GCM.send_notification( destination, data )
-
+    
 
     flash[:notice] = "回答を送信しました"
 
-    render 'user/index'
+    redirect_to root_path
   end
   
   def sends
     @questions = Question.where(from: current_user.email)
+    @questions = @questions.reverse
   end
 
   # GET /questions/new
@@ -63,6 +65,7 @@ class QuestionsController < ApplicationController
     @question.from = current_user.email
 
 
+    # GCM send
     @user = User.find_by(email: @question.to)
     registration_id = @user.reg_id
     destination = [registration_id]
@@ -75,7 +78,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: '質問が送信されました' }
+        format.html { redirect_to root_path, notice: '質問が送信されました' }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new }

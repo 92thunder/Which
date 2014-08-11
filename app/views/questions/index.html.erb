@@ -12,7 +12,7 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
-        <td><%= question.from[0, 11] %></td>
+        <td><%= link_to question.from[0, 13], new_question_path(to: question.from) %></td>
         <% if question.answerd != true %>
           <td id="yet">未</td>
         <% elsif question.answer == false %>

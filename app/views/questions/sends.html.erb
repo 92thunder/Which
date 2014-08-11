@@ -6,13 +6,14 @@
       <th></th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @questions.each do |question| %>
       <tr>
-        <td><%= question.to[0, 15] %></td>
+        <td><%= link_to question.to[0, 11], new_question_path(to: question.to) %></td>
         <% if question.answerd != true %>
           <td id="yet">未</td>
         <% elsif question.answer == false %>
@@ -20,8 +21,8 @@
         <% else %>
           <td id="yes">Y</td>
         <% end %>
+        <td><%= link_to '', question, class: "glyphicon glyphicon-eye-open" %></td>
         <td><%= link_to '', question, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove" %></td>
-
       </tr>
     <% end %>
   </tbody>

@@ -12,3 +12,16 @@
 <strong>質問:</strong><br>
   <%= @question.question %>
 </p>
+
+<p>
+<strong>回答:</strong><br>
+<% if @question.answerd == true %>
+  <% if @question.answer == true %>
+    <span class="btn" id="yes">YES</span>
+  <% else %>
+    <span class="btn" id="no">NO</span>
+  <% end %>
+<% else %>
+  <span class="btn" id="yet">未</span>
+<% end %>
+</p>
